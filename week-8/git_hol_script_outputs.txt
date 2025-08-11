@@ -1,0 +1,128 @@
+
+
+===== Running 2_Git-HOL_ignore.sh =====
+
+STDOUT:
+Creating log file and log folder...
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+STDERR:
+
+
+
+===== Running 3_Git-HOL_branch_merge.sh =====
+
+STDOUT:
+Creating new branch GitNewBranch...
+  GitNewBranch
+* master
+Adding files to branch...
+[GitNewBranch dbfe6ad] Add sample.txt in GitNewBranch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 sample.txt
+Switching to master and checking differences...
+diff --git a/sample.txt b/sample.txt
+deleted file mode 100644
+index 53f3099..0000000
+--- a/sample.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-Sample content
+Updating a806bb9..dbfe6ad
+Fast-forward
+ sample.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 sample.txt
+* dbfe6ad (HEAD -> master, GitNewBranch) Add sample.txt in GitNewBranch
+* a806bb9 Initial commit
+Deleted branch GitNewBranch (was dbfe6ad).
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+STDERR:
+Switched to branch 'GitNewBranch'
+Switched to branch 'master'
+/mnt/data/git_hol_scripts/3_Git-HOL_branch_merge.sh: line 18: p4merge: command not found
+
+
+
+===== Running 4_Git-HOL_conflict_resolution.sh =====
+
+STDOUT:
+Creating GitWork branch and adding hello.xml...
+[GitWork 65e37de] Add hello.xml in GitWork
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.xml
+Switching to master and adding different hello.xml...
+[master 83c310f] Add hello.xml in master
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.xml
+* 65e37de (GitWork) Add hello.xml in GitWork
+| * 83c310f (HEAD -> master) Add hello.xml in master
+|/  
+* dbfe6ad Add sample.txt in GitNewBranch
+* a806bb9 Initial commit
+diff --git a/hello.xml b/hello.xml
+index acba5c9..672ac2c 100644
+--- a/hello.xml
++++ b/hello.xml
+@@ -1 +1 @@
+-<msg>Hello from branch</msg>
++<msg>Hello from master</msg>
+Merging branch into master...
+Auto-merging hello.xml
+CONFLICT (add/add): Merge conflict in hello.xml
+Automatic merge failed; fix conflicts and then commit the result.
+Merge conflict detected!
+[master 87356a2] Resolved merge conflict in hello.xml
+[master 1583279] Add .gitignore entry for .bak files
+ 1 file changed, 3 insertions(+)
+ create mode 100644 .gitignore
+Deleted branch GitWork (was 65e37de).
+* 1583279 (HEAD -> master) Add .gitignore entry for .bak files
+*   87356a2 Resolved merge conflict in hello.xml
+|\  
+| * 65e37de Add hello.xml in GitWork
+* | 83c310f Add hello.xml in master
+|/  
+* dbfe6ad Add sample.txt in GitNewBranch
+* a806bb9 Initial commit
+
+STDERR:
+Already on 'master'
+Switched to a new branch 'GitWork'
+Switched to branch 'master'
+/mnt/data/git_hol_scripts/4_Git-HOL_conflict_resolution.sh: line 21: p4merge: command not found
+
+
+
+===== Running 5_Git-HOL_cleanup_push.sh =====
+
+STDOUT:
+On branch master
+nothing to commit, working tree clean
+* master
+Pushing pending changes from Git-T03-HOL_002...
+Check remote repository for changes.
+
+STDERR:
+Already on 'master'
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
